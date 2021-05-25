@@ -1,0 +1,52 @@
+//Single Inheritance: A class which is derived from a single base class
+#include <iostream>
+using namespace std;
+
+class Base
+{
+    int data1; // Private by default and is not inheritable as private members of the class are not inheritable.
+    public:
+      int data2;
+      void setData();
+      int getData1();
+      int getData2();
+};
+
+void Base::setData(void)
+{
+    data1=10;
+    data2=20;
+}
+int Base::getData1(void)// Private member of the class can be accessed by the member function of that class
+{
+    return data1;
+}
+int Base::getData2(void)
+{
+    return data2;
+}
+class Derived : public Base // Class is being derived publically
+{
+    int data3;
+    public:
+      void process();
+      void display();
+};
+void Derived::process()
+{
+    data3=data2*getData1();
+}
+void Derived::display()
+{
+    cout <<"Value of Data1 is "<<getData1()<<endl; // As here data1 was private in Base class so it was not inherited to Derived class so it was displayed using the getdata1() function.
+    cout <<"Value of Data2 is "<<data2<<endl;
+    cout <<"Value of Data3 is "<<data3<<endl;
+}
+int main()
+{
+    Derived der;
+    der.setData();
+    der.process();
+    der.display();
+    return 0;
+}
