@@ -4,9 +4,9 @@
 #include<algorithm>
 using namespace std;
 
-bool f(int x, int y)
+bool f(int a, int b)
 {
-    return x>y;
+    return a>b;
 }
 
 int main()
